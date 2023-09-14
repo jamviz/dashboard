@@ -8,7 +8,6 @@ export default defineConfig({
     viewTransitions: true,
   },
   site: 'https://jamviz.github.io',
-  base: '/src/pages',
   integrations: [tailwind(), compress()],
 });
 
