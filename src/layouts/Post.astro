@@ -1,0 +1,89 @@
+---
+import Layout from './Layout.astro';
+import Cta from '../components/dashboard/Cta.astro';
+import Faq from '../components/dashboard/Faq.astro';
+import { formatDate, slugify } from '../utils/helpers';
+
+const { frontmatter } = Astro.props;
+
+---
+
+<Layout 
+description="Entradas"
+title="Dashboard"
+>
+
+  <section class="py-16 sm:py-20"> 
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8"> 
+      <div class="flex flex-col gap-4 sm:gap-6"> 
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">{frontmatter.title}</h1>
+        <p class="post-content__date">
+          <time>{formatDate(frontmatter.publishedAt)}</time>
+        </p> 
+        <p class="text-primary-950/70 dark:text-primary-200/70 mx-auto max-w-xl text-lg sm:text-xl"> 
+          {frontmatter.descripcion} 
+        </p> 
+        <div class="flex justify-center"> 
+          <div class="post-content__content flow fade-in mt-4">
+            <iframe title="Reporte de la red de salud" width="1020" height="640" src={frontmatter.link}></iframe>
+          </div>
+          
+        <div class="w-full md:w-1/4 pl-10 mt-2">
+                <h2 class="text-xl text-gray-800 mb-4 ">Información</h2>
+                <ul class="text-sm tracking-wide text-right	leading-normal" >
+                  <slot />
+                </ul>
+        </div> 
+
+      </div> 
+    </div> 
+  </section>
+
+  <Faq />
+  <Cta />
+</Layout>
+
+<style>
+  .post-content__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .post-content__category {
+    padding: 0.5rem 1rem;
+    font-size: var(--step--1);
+    background-color: var(--theme-surface-1);
+    border-radius: 2rem;
+  }
+  .post-content__category a {
+    text-decoration: none;
+  }
+  .post-content__category a:hover {
+    opacity: 0.8;
+  }
+  .post-content__article {
+    padding: 5vh 0;
+  }
+  .post-content__title {
+    margin: 1rem auto;
+    font-size: var(--step-5);
+  }
+  .post-content__date {
+    margin: 0 auto;
+    font-size: var(--step--1);
+    color: var(--color-gray);
+    font-style: italic;
+  }
+  .post-content__img {
+    margin: 3rem 0 2rem 0;
+    max-width: 100%;
+    height: auto;
+    border-radius: 2rem;
+  }
+  .post-content__content :global(img) {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+</style>
