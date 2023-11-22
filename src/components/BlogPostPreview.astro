@@ -7,8 +7,8 @@ import {formatDate} from '../utils/helpers';
 <a class="post-preview__link fade-in" href={post.url}>
 <article class="post-preview__article">
   <picture>
-    <source srcset={`${post.frontmatter.image}.webp`} type="image/webp">
-    <img class="post-preview__img" src={`${post.frontmatter.image}.png`} alt={`Featured image for ${post.frontmatter.title}`} >
+    <source srcset={`${post.frontmatter.image}`} type="image/webp">
+    <img class="post-preview__img" src={`${post.frontmatter.image}.jpg`} alt={`Featured image for ${post.frontmatter.title}`} >
   </picture>
   <div class="post-preview__text">
     <h2>{post.frontmatter.title}</h2>
