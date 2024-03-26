@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Post.astro
-title: Dashboard Establecimientos
+title: Dashboard Establecimientos !
 publishedAt: 2024-11-15T05:00:00.000Z
 image: /images/freelance.webp
 descripcion: Interactúa las páginas del dashboard gracias a Power-BI
